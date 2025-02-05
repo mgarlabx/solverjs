@@ -141,26 +141,43 @@ const Z = {
             es: 'No'
         }[language];
 
-        // Read terms from file
-        const path = `files/terms_${language}.txt`;
-        fetch(path)
-            .then(response => response.text())
-            .then(text => {
-                text = text.replace(/\n/g, '<br>');
-                text += `<div class="terms-buttons">`;
-                text += `<button id="z-terms-yes" class="terms-button" style="background-color:blue;">${exprYes}</button>`;
-                text += `<button id="z-terms-no" class="terms-button" style="background-color:red;">${exprNo}</button>`;
-                text += `</div>`;
-                Z.modal(title, text, false);
-                Z.get('#z-terms-yes').onclick = () => {
-                    Z.termsAccept(appName, 1);
-                    return callback(true);
-                };
-                Z.get('#z-terms-no').onclick = () => {
-                    Z.termsAccept(appName, 0);
-                    return callback(false);
-                };
-            });
+        let text = Zterms.text(language);
+        text = text.replace(/\n/g, '<br>');
+        text += `<div class="solver-terms-buttons">`;
+        text += `<button id="z-terms-yes" class="solver-terms-button" style="background-color:blue;">${exprYes}</button>`;
+        text += `<button id="z-terms-no" class="solver-terms-button" style="background-color:red;">${exprNo}</button>`;
+        text += `</div>`;
+        Z.modal(title, text, false);
+        Z.get('#z-terms-yes').onclick = () => {
+            Z.termsAccept(appName, 1);
+            return callback(true);
+        };
+        Z.get('#z-terms-no').onclick = () => {
+            Z.termsAccept(appName, 0);
+            return callback(false);
+        };
+
+
+        // // Read terms from file
+        // const path = `https://solvertank.tech/solverjs/files/terms_${language}.txt`;
+        // fetch(path)
+        //     .then(response => response.text())
+        //     .then(text => {
+        //         text = text.replace(/\n/g, '<br>');
+        //         text += `<div class="solver-terms-buttons">`;
+        //         text += `<button id="z-terms-yes" class="solver-terms-button" style="background-color:blue;">${exprYes}</button>`;
+        //         text += `<button id="z-terms-no" class="solver-terms-button" style="background-color:red;">${exprNo}</button>`;
+        //         text += `</div>`;
+        //         Z.modal(title, text, false);
+        //         Z.get('#z-terms-yes').onclick = () => {
+        //             Z.termsAccept(appName, 1);
+        //             return callback(true);
+        //         };
+        //         Z.get('#z-terms-no').onclick = () => {
+        //             Z.termsAccept(appName, 0);
+        //             return callback(false);
+        //         };
+        //     });
     },
 
     // button 1 = accept, 0 = reject
@@ -184,9 +201,9 @@ const Z = {
         fetch(`https://solvertank.tech/solverjs/app/`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
+            body: JSON.stringify({
                 proc: 'recordAccess',
-                appName: appName 
+                appName: appName
             })
         });
     },
@@ -272,7 +289,95 @@ const Z = {
         }
     },
 
-}
+};
 
 window.solverModalClose = Z.modalHide;
 
+
+
+const Zterms = {
+
+    text(language) {
+        if (language === 'pt') {
+            return this.text_pt;
+        } else if (language === 'es') {
+            return this.text_es;
+        } else {
+            return this.text_en;
+        }
+    },
+
+    text_en: `
+SolverEdu is a voluntary, philanthropic, non-commercial, open-source initiative that aims to support educators and students through the use of technology. The applications available on this platform can be freely used by anyone, free of charge, under the following conditions:
+
+1. There is no prior registration or need to log in, so all accesses are anonymous and no sensitive user data is collected and/or stored on servers. Only the access count is recorded for the purposes of platform usage statistics.
+
+2. All information and operations performed by users on the applications are stored locally, in the browser cache, through the "local storage" feature. This means that if the user clears the browser cache, all data will be lost. Likewise, if the user accesses the application on another device and/or another browser, the information will not be loaded.
+
+3. Some applications on this platform have a download feature, which allows users to download a file in "json" format so that they can save the cache in their folders and upload it again using the upload feature, including on other devices.
+
+4. The applications on this platform are "proof of concept", meaning they should not be used as a production environment, as they are subject to errors and imperfections, and there are no guarantees of security and stability.
+
+5. As this is a voluntary and self-funded initiative, the platform may be taken offline at any time, without prior notice. This reinforces the need for this platform not to be used as a production environment.
+
+6. If the user wishes to use one or more applications on this platform as a production environment, they must download the source code and install it on their own infrastructure, at their own risk and liability, and may change, delete and include new features, including for commercial purposes. We only request that this use be reported for the purposes of publicizing and promoting the platform.
+
+7. The platform is currently free to access, but this does not prevent it from being commercialized and/or monetized in some way, directly or indirectly, in the future, nor from becoming a profit-making platform.
+
+8. This platform is exclusively for educational purposes. It should only be used in this context and for peaceful and legal purposes. There are no guarantees for any misuse or for any other purpose.
+
+9. Users of the SolverEdu platform and its applications exempt its organizers from any and all liability for material, personal, moral, image or any other type of damages that may be caused by its use or by third parties, in any and all circumstances.
+
+Do you declare, of your own free will, that you have understood and are aware of the above conditions and agree to them in order to access SolverEdu applications?
+    `,
+
+    text_pt: `
+A SolverEdu é uma iniciativa voluntária, filantrópica, sem fins comerciais e de código aberto, com o objetivo de apoiar educadores e educandos através do uso da tecnologia. As aplicações diponíveis nessa plataforma podem ser livremente utilizados por qualquer pessoa, sem custo, dentro das seguintes condições:
+
+1. Não há cadastros prévios e nem a necessidade de login, portanto todos os acessos são anônimos e nenhum dado sensível dos usuários é coletado e/ou armazenado em servidores. Há apenas o registro da contagem de acessos, para fins de estatísticas de utilização da plataforma.
+
+2. Todas as informações e operações feitas pelos usuários nas aplicações são armazenadas localmente, no cachê do navegador, através do recurso "local storage". Isso significa que no caso do usuário limpar o cachê do navegador, todos os dados serão perdidos. Da mesma forma, se o usuário acessar em outro dispositivo e/ou outro navegador, as informações não serão carregadas.
+
+3. Algumas aplicações dessa plataforma possuem o recurso download, que permite baixar um arquivo no formato "json" para que o usuário possa salvar em suas pastas o cachê e subir novamente através do recurso upload, inclusive em outros dispositivos.
+
+4. As aplicações dessa plataforma tem o caráter de "prova de conceito", ou seja, não devem ser usadas como ambiente de produção, pois estão sujeitas a erros e imperfeições, bem como não há garantias de segurança e de estabilidade. 
+
+5. Como se trata de uma iniciativa voluntária e autofinanciada, a plataforma poderá ser retirada do ar a qualquer momento, sem aviso prévio. Dessa forma, reforça-se a necessidade desta plataforma não ser usada como ambiente de produção.
+
+6. Caso o usuário deseje usar uma ou mais aplicações dessa plataforma como ambiente de produção, ele deverá baixar o código fonte e instalar em sua própria infraestrutura, sob sua responsabilidade e risco, sendo permitido alterar, excluir e incluir novas funcionalidades, inclusive com objetivos comerciais. Solicita-se apenas que esse uso seja informado, para fins de divulgação e impulsionamento da plataforma.
+
+7. A plataforma no momento é de acesso gratuito, mas isso não impede que no futuro venha eventualmente a ser comercializada e/ou monetizada de alguma forma, direta ou indiretamente, tampouco que passe a ter fins lucrativos.
+
+8. Essa plataforma tem exclusivamente objetivos educacionais. Só deve ser usada nesse contexto e com fins pacíficos e legais. Não há garantias por eventual mau uso ou decorrente de qualquer outro propósito.
+
+9. Os usuários da plataforma SolverEdu e de suas aplicações isentam os seus organizadores de toda e qualquer responsabilidade por danos materiais, pessoais, morais, à imagem, ou de qualquer outra espécie, que venham a ser causados pelo seu uso ou por terceiros, em toda e qualquer hipótese.
+
+Você declara, de livre e espontânea vontade, ter compreendido e estar ciente das condições acima e concorda com elas para acessar as aplicações da SolverEdu?    
+    `,
+
+    text_es: `
+SolverEdu es una iniciativa voluntaria, filantrópica, no comercial y de código abierto, con el objetivo de apoyar a educadores y estudiantes a través del uso de la tecnología. Las aplicaciones disponibles en esta plataforma pueden ser utilizadas libremente por cualquier persona, de forma gratuita, bajo las siguientes condiciones:
+
+1. No existe registro previo ni necesidad de iniciar sesión, por lo que todo acceso es anónimo y no se recogen y/o almacenan datos sensibles del usuario en servidores. Sólo existe un registro del número de accesos, para efectos de estadísticas de uso de la plataforma.
+
+2. Toda la información y operaciones realizadas por los usuarios en las aplicaciones se almacenan localmente, en la memoria caché del navegador, a través de la función de "almacenamiento local". Esto significa que en caso de que el usuario borre la memoria caché del navegador, se perderán todos los datos. Asimismo, si el usuario accede en otro dispositivo y/o otro navegador, la información no se cargará.
+
+3. Algunas aplicaciones de esta plataforma cuentan con la función de descarga, que permite descargar un archivo en formato “json” para que el usuario pueda guardar el caché en sus carpetas y volver a subirlo mediante la función de carga, incluso en otros dispositivos.
+
+4. Las aplicaciones en esta plataforma son de naturaleza "prueba de concepto", lo que significa que no deben usarse como entorno de producción, ya que están sujetas a errores e imperfecciones y no existen garantías de seguridad y estabilidad.
+
+5. Al tratarse de una iniciativa voluntaria y autofinanciada, la plataforma podrá ser retirada del servicio en cualquier momento, sin previo aviso. Esto refuerza la necesidad de que esta plataforma no se utilice como entorno de producción.
+
+6. Si el usuario desea utilizar una o más aplicaciones en esta plataforma como entorno de producción, deberá descargar el código fuente e instalarlo en su propia infraestructura, bajo su propia responsabilidad y riesgo, pudiendo cambiar, eliminar e incluir nuevas funcionalidades, incluso para fines distintos a los comerciales. Únicamente se solicita que se informe de dicho uso, a efectos de difusión y promoción de la plataforma.
+
+7. La plataforma actualmente es de libre acceso, pero esto no impide que en el futuro pueda ser comercializada y/o monetizada de alguna forma, directa o indirectamente, ni convertirse en una plataforma con fines lucrativos.
+
+8. Esta plataforma tiene fines exclusivamente educativos. Sólo debe utilizarse en este contexto y con fines pacíficos y legales. No existen garantías por mal uso o para cualquier otro propósito.
+
+9. Los usuarios de la plataforma SolverEdu y sus aplicaciones eximen a sus organizadores de toda responsabilidad por daños materiales, personales, morales, de imagen o de cualquier otro tipo que pudieran ocasionarse por su uso o por terceros, en cualquier hipótesis. .
+
+¿Declara usted, por su propia voluntad, haber comprendido y conocer las condiciones anteriores y estar de acuerdo con ellas para poder acceder a las aplicaciones de SolverEdu?    
+    `,
+
+
+};
