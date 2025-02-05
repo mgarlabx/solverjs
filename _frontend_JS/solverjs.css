@@ -32,13 +32,30 @@ Laptop:
 }
 
 .solver-terms-error {
+    padding-top: 5rem;
+    width: 100vh;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.solver-terms-error-message {
     color: red;
     font-size: 150%;
     font-weight: bold;
-    padding-top: 2rem;
-    width: 100vh;
-    margin: 0 auto;
+    width: 100%;
 }
+
+.solver-terms-error-reload {
+    padding-top: 2rem;
+    color:blue;
+    width: 100%;
+    cursor: pointer;
+}
+
+.solver-terms-error-reload:hover {
+    text-decoration: underline;
+}
+
 
 /**** PROCESSING ********************************************************/
 

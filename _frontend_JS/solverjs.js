@@ -148,6 +148,7 @@ const Z = {
         text += `<button id="z-terms-no" class="solver-terms-button" style="background-color:red;">${exprNo}</button>`;
         text += `</div>`;
         Z.modal(title, text, false);
+        
         Z.get('#z-terms-yes').onclick = () => {
             Z.termsAccept(appName, 1);
             return callback(true);
@@ -157,27 +158,6 @@ const Z = {
             return callback(false);
         };
 
-
-        // // Read terms from file
-        // const path = `https://solvertank.tech/solverjs/files/terms_${language}.txt`;
-        // fetch(path)
-        //     .then(response => response.text())
-        //     .then(text => {
-        //         text = text.replace(/\n/g, '<br>');
-        //         text += `<div class="solver-terms-buttons">`;
-        //         text += `<button id="z-terms-yes" class="solver-terms-button" style="background-color:blue;">${exprYes}</button>`;
-        //         text += `<button id="z-terms-no" class="solver-terms-button" style="background-color:red;">${exprNo}</button>`;
-        //         text += `</div>`;
-        //         Z.modal(title, text, false);
-        //         Z.get('#z-terms-yes').onclick = () => {
-        //             Z.termsAccept(appName, 1);
-        //             return callback(true);
-        //         };
-        //         Z.get('#z-terms-no').onclick = () => {
-        //             Z.termsAccept(appName, 0);
-        //             return callback(false);
-        //         };
-        //     });
     },
 
     // button 1 = accept, 0 = reject
@@ -195,9 +175,29 @@ const Z = {
         Z.modalHide();
     },
 
+    termsError(language) {
+        const msgError = {
+            "pt": "Erro: Termos não aceitos.",
+            "en": "Error: Terms not accepted.",
+            "es": "Error: Términos no aceptados.",
+        }[language];
+        const msgReload = {
+            "pt": "Recarregar a página para ler novamente os termos.",
+            "en": "Reload the page to read the terms again.",
+            "es": "Recargue la página para leer los términos de nuevo.",
+        }[language];
+        document.body.innerHTML = `
+            <div class="solver-terms-error">
+            <div class="solver-terms-error-message">${msgError}</div>
+            <div onclick="window.location.reload()" class="solver-terms-error-reload">${msgReload}</div>
+            </div>`;
+    },
+
     // ------ Record access ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
 
     recordAccess(appName) {
+        if (location.href.includes('127.0.0')) return;
+        if (location.href.includes('localhost')) return;
         fetch(`https://solvertank.tech/solverjs/app/`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
