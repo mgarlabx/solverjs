@@ -181,10 +181,13 @@ const Z = {
     // ------ Record access ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
 
     recordAccess(appName) {
-        fetch(`xbxbxbxbxbxb`, {
+        fetch(`https://solvertank.tech/solverjs/app/`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ appName: appName })
+            body: JSON.stringify({ 
+                proc: 'recordAccess',
+                appName: appName 
+            })
         });
     },
 
