@@ -176,6 +176,7 @@ const Z = {
     },
 
     termsError(language) {
+        if (language !== 'pt' && language !== 'es') language = 'en';
         const msgError = {
             "pt": "Erro: Termos não aceitos.",
             "en": "Error: Terms not accepted.",
