@@ -17,10 +17,10 @@ if ($proc == null) {
 }
 
 // Open connection
-$host = "solvertech.mysql.dbaas.com.br";
-$login = "solvertech";
-$password = "Solv@tx789";
-$database = "solvertech";
+$host = "host";
+$login = "login";
+$password = "password";
+$database = "database";
 try {
     $connection = mysqli_connect($host, $login, $password, $database);
     mysqli_set_charset($connection, "utf8");
