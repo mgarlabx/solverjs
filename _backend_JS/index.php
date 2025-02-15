@@ -1,9 +1,10 @@
 <?php
+
 // Headers settings to allow CORS
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type");
-header("Content-Type: application/json");
+header("Content-Type: application/json"); 
 
 // Get posted data
 $post = json_decode(file_get_contents("php://input"), true); 
@@ -17,10 +18,12 @@ if ($proc == null) {
 }
 
 // Open connection
-$host = "host";
-$login = "login";
-$password = "password";
-$database = "database";
+// $host = "host";
+// $login = "login";
+// $password = "password";
+// $database = "database";
+require './dbconfig.php';
+
 try {
     $connection = mysqli_connect($host, $login, $password, $database);
     mysqli_set_charset($connection, "utf8");
