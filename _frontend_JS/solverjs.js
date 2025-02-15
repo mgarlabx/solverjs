@@ -118,7 +118,6 @@ const Z = {
                 solveredu.terms = [];
             }
         } else {
-            console.log(3);
             solveredu = { terms: [] };
         }
         localStorage.setItem('solveredu', JSON.stringify(solveredu));
@@ -311,9 +310,9 @@ const Zterms = {
     text_en: `
 SolverEdu is a voluntary, philanthropic, non-commercial, open-source initiative that aims to support educators and students through the use of technology. The applications available on this platform can be freely used by anyone, free of charge, under the following conditions:
 
-1. There is no prior registration or need to log in, so all accesses are anonymous and no sensitive user data is collected and/or stored on servers. Only the access count is recorded for the purposes of platform usage statistics.
+1. There is no prior registration or need to log in, so all access is anonymous and no sensitive user data is collected and/or stored on servers. There is only a record of the number of accesses, for the purposes of platform usage statistics and, in some cases, records of user interactions, but always anonymously.
 
-2. All information and operations performed by users on the applications are stored locally, in the browser cache, through the "local storage" feature. This means that if the user clears the browser cache, all data will be lost. Likewise, if the user accesses the application on another device and/or another browser, the information will not be loaded.
+2. Much of the information and operations performed by users in the applications are stored locally, in the browser cache, through the "local storage" feature. This means that if the user clears the browser cache, this data will be lost. Likewise, if the user accesses the application on another device and/or another browser, this information will not be loaded.
 
 3. Some applications on this platform have a download feature, which allows users to download a file in "json" format so that they can save the cache in their folders and upload it again using the upload feature, including on other devices.
 
@@ -321,7 +320,7 @@ SolverEdu is a voluntary, philanthropic, non-commercial, open-source initiative 
 
 5. As this is a voluntary and self-funded initiative, the platform may be taken offline at any time, without prior notice. This reinforces the need for this platform not to be used as a production environment.
 
-6. If the user wishes to use one or more applications on this platform as a production environment, they must download the source code and install it on their own infrastructure, at their own risk and liability, and may change, delete and include new features, including for commercial purposes. We only request that this use be reported for the purposes of publicizing and promoting the platform.
+6. If the user wishes to use one or more applications on this platform as a production environment, they must download the source code and install it on their own infrastructure, at their own risk and responsibility, and may change, delete and include new features, including for commercial purposes. We only request that this use be reported for the purposes of publicizing and promoting the platform.
 
 7. The platform is currently free to access, but this does not prevent it from being commercialized and/or monetized in some way, directly or indirectly, in the future, nor from becoming a profit-making platform.
 
@@ -335,9 +334,9 @@ Do you declare, of your own free will, that you have understood and are aware of
     text_pt: `
 A SolverEdu é uma iniciativa voluntária, filantrópica, sem fins comerciais e de código aberto, com o objetivo de apoiar educadores e educandos através do uso da tecnologia. As aplicações diponíveis nessa plataforma podem ser livremente utilizados por qualquer pessoa, sem custo, dentro das seguintes condições:
 
-1. Não há cadastros prévios e nem a necessidade de login, portanto todos os acessos são anônimos e nenhum dado sensível dos usuários é coletado e/ou armazenado em servidores. Há apenas o registro da contagem de acessos, para fins de estatísticas de utilização da plataforma.
+1. Não há cadastros prévios e nem a necessidade de login, portanto todos os acessos são anônimos e nenhum dado sensível dos usuários é coletado e/ou armazenado em servidores. Há apenas o registro da contagem de acessos, para fins de estatísticas de utilização da plataforma e, em alguns casos, registros das interações dos usuários, mas sempre de forma anônima.
 
-2. Todas as informações e operações feitas pelos usuários nas aplicações são armazenadas localmente, no cachê do navegador, através do recurso "local storage". Isso significa que no caso do usuário limpar o cachê do navegador, todos os dados serão perdidos. Da mesma forma, se o usuário acessar em outro dispositivo e/ou outro navegador, as informações não serão carregadas.
+2. Muitas das informações e operações feitas pelos usuários nas aplicações são armazenadas localmente, no cachê do navegador, através do recurso "local storage". Isso significa que no caso do usuário limpar o cachê do navegador, esses dados serão perdidos. Da mesma forma, se o usuário acessar em outro dispositivo e/ou outro navegador, essas informações não serão carregadas.
 
 3. Algumas aplicações dessa plataforma possuem o recurso download, que permite baixar um arquivo no formato "json" para que o usuário possa salvar em suas pastas o cachê e subir novamente através do recurso upload, inclusive em outros dispositivos.
 
@@ -359,9 +358,9 @@ Você declara, de livre e espontânea vontade, ter compreendido e estar ciente d
     text_es: `
 SolverEdu es una iniciativa voluntaria, filantrópica, no comercial y de código abierto, con el objetivo de apoyar a educadores y estudiantes a través del uso de la tecnología. Las aplicaciones disponibles en esta plataforma pueden ser utilizadas libremente por cualquier persona, de forma gratuita, bajo las siguientes condiciones:
 
-1. No existe registro previo ni necesidad de iniciar sesión, por lo que todo acceso es anónimo y no se recogen y/o almacenan datos sensibles del usuario en servidores. Sólo existe un registro del número de accesos, para efectos de estadísticas de uso de la plataforma.
+1. No existe registro previo ni necesidad de iniciar sesión, por lo que todo acceso es anónimo y no se recogen y/o almacenan datos sensibles del usuario en servidores. Únicamente se mantiene un registro del número de accesos, a efectos de estadísticas de uso de la plataforma y, en algunos casos, registros de las interacciones de los usuarios, pero siempre de forma anónima.
 
-2. Toda la información y operaciones realizadas por los usuarios en las aplicaciones se almacenan localmente, en la memoria caché del navegador, a través de la función de "almacenamiento local". Esto significa que en caso de que el usuario borre la memoria caché del navegador, se perderán todos los datos. Asimismo, si el usuario accede en otro dispositivo y/o otro navegador, la información no se cargará.
+2. Gran parte de la información y operaciones que realizan los usuarios en las aplicaciones se almacenan localmente, en la memoria caché del navegador, a través de la función de "almacenamiento local". Esto significa que si el usuario borra la memoria caché del navegador, estos datos se perderán. Asimismo, si el usuario accede desde otro dispositivo y/o otro navegador, esta información no se cargará.
 
 3. Algunas aplicaciones de esta plataforma cuentan con la función de descarga, que permite descargar un archivo en formato “json” para que el usuario pueda guardar el caché en sus carpetas y volver a subirlo mediante la función de carga, incluso en otros dispositivos.
 
@@ -369,15 +368,15 @@ SolverEdu es una iniciativa voluntaria, filantrópica, no comercial y de código
 
 5. Al tratarse de una iniciativa voluntaria y autofinanciada, la plataforma podrá ser retirada del servicio en cualquier momento, sin previo aviso. Esto refuerza la necesidad de que esta plataforma no se utilice como entorno de producción.
 
-6. Si el usuario desea utilizar una o más aplicaciones en esta plataforma como entorno de producción, deberá descargar el código fuente e instalarlo en su propia infraestructura, bajo su propia responsabilidad y riesgo, pudiendo cambiar, eliminar e incluir nuevas funcionalidades, incluso para fines distintos a los comerciales. Únicamente se solicita que se informe de dicho uso, a efectos de difusión y promoción de la plataforma.
+6. Si el usuario desea utilizar una o más aplicaciones de esta plataforma como entorno de producción, deberá descargar el código fuente e instalarlo en su propia infraestructura, bajo su propia responsabilidad y riesgo, pudiendo modificarlo, eliminarlo e incluir nuevas funcionalidades, incluso con fines comerciales. Únicamente se solicita que se informe de dicho uso, a efectos de difusión y promoción de la plataforma.
 
 7. La plataforma actualmente es de libre acceso, pero esto no impide que en el futuro pueda ser comercializada y/o monetizada de alguna forma, directa o indirectamente, ni convertirse en una plataforma con fines lucrativos.
 
 8. Esta plataforma tiene fines exclusivamente educativos. Sólo debe utilizarse en este contexto y con fines pacíficos y legales. No existen garantías por mal uso o para cualquier otro propósito.
 
-9. Los usuarios de la plataforma SolverEdu y sus aplicaciones eximen a sus organizadores de toda responsabilidad por daños materiales, personales, morales, de imagen o de cualquier otro tipo que pudieran ocasionarse por su uso o por terceros, en cualquier hipótesis. .
+9. Los usuarios de la plataforma SolverEdu y sus aplicaciones eximen a sus organizadores de cualquier responsabilidad por daños materiales, personales, morales, de imagen o de cualquier otro tipo que pudieran ocasionarse por su utilización o por terceros, en cualquier circunstancia.
 
-¿Declara usted, por su propia voluntad, haber comprendido y conocer las condiciones anteriores y estar de acuerdo con ellas para poder acceder a las aplicaciones de SolverEdu?    
+¿Declara usted, por su propia voluntad, haber comprendido y conocer las condiciones anteriores y estar de acuerdo con ellas para poder acceder a las aplicaciones de SolverEdu?
     `,
 
 
