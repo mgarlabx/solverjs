@@ -91,6 +91,11 @@ const Z = {
         return checked = [...checkboxes].map(checkbox => checkbox.checked);
     },
 
+
+	// SELECT
+	// use this <select onchange="myFunction(this.value)">
+
+
     // deprecated
     getValue(selector) {
         if (this.missing(selector)) return;
@@ -251,7 +256,7 @@ const Z = {
     // ------ Language ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
 
     languageCurrent: 'en',
-
+    
     languageDictionary: [],
 
     languageBrowser() {
@@ -275,7 +280,7 @@ const Z = {
     },
 
     languageSet(language) {
-        this.currentLanguage = language;
+        this.languageCurrent = language;
     },
 
     //languageTranslate
