@@ -51,6 +51,29 @@ const Z = {
 
     },
 
+    // Add class
+    addClass(selector, className) {
+        if (this.missing(selector)) return;
+        if (selector.slice(0, 1) === '#') {
+            document.querySelector(selector).classList.add(className);
+        } else if (selector.slice(0, 1) === '.') {
+            document.querySelectorAll(selector).forEach((el) => {
+                el.classList.add(className);
+            });
+        }
+    },
+
+    // Remove class
+    removeClass(selector, className) {
+        if (this.missing(selector)) return;
+        if (selector.slice(0, 1) === '#') {
+            document.querySelector(selector).classList.remove(className);
+        } else if (selector.slice(0, 1) === '.') {
+            document.querySelectorAll(selector).forEach((el) => {
+                el.classList.remove(className);
+            });
+        }
+    },
 
     // Check if element exists
     missing(selector) {
