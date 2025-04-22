@@ -202,6 +202,7 @@ const Z = {
         Z.modalHide();
     },
 
+    // Teste
     termsError(language) {
         if (language !== 'pt' && language !== 'es') language = 'en';
         const msgError = {
