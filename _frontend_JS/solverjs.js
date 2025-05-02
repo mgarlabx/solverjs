@@ -105,6 +105,8 @@ const Z = {
         return document.querySelector(`#${elementId}`).value;
     },
 
+	// Example <input type="checlbox" onclick="fn_check()">
+	// co
     getInputCheckbox(elementId) {
         return document.querySelector(`#${elementId}`).checked;
     },
