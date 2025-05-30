@@ -3,7 +3,6 @@ const Z = {
 
     closeIcon: '<?xml version="1.0" encoding="iso-8859-1"?><svg fill="#000000" height="20px" width="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 490 490" xml:space="preserve"><polygon points="456.851,0 245,212.564 33.149,0 0.708,32.337 212.669,245.004 0.708,457.678 33.149,490 245,277.443 456.851,490 489.292,457.678 277.331,245.004 489.292,32.337 "/></svg>',
 
-    // Wait for the DOM to be ready
     ready(callback) {
         document.addEventListener('DOMContentLoaded', callback);
     },
@@ -11,14 +10,12 @@ const Z = {
 
     // ------ DOM ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
 
-    // Get element by ID
     get(selector) {
         if (selector.length === 0) return;
         selector = selector.replace('#', '');
         return document.getElementById(selector);
     },
 
-    // Hide elements
     hide(selector) {
         if (selector.length === 0) return;
         if (selector.slice(0, 1) === '#') {
@@ -31,7 +28,6 @@ const Z = {
         }
     },
 
-    // Show elements
     show(selector, display = 'block') {
         if (selector.length === 0) return;
         if (selector.slice(0, 1) === '#') {
@@ -44,14 +40,12 @@ const Z = {
         }
     },
 
-    // Set innerHTML
     html(selector, html) {
         if (this.missing(selector)) return;
         document.querySelector(selector).innerHTML = html;
 
     },
 
-    // Add class
     addClass(selector, className) {
         if (this.missing(selector)) return;
         if (selector.slice(0, 1) === '#') {
@@ -63,7 +57,6 @@ const Z = {
         }
     },
 
-    // Remove class
     removeClass(selector, className) {
         if (this.missing(selector)) return;
         if (selector.slice(0, 1) === '#') {
@@ -87,16 +80,10 @@ const Z = {
 
     // ------ Form ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
 
-    // Example
-    // tx += `<input type="radio" class="edit-radio" value="quiz" name="radio-type" ${this.data.type == 'quiz' ? ' checked' : '' }> Quiz`;
-    // const type = Z.getInputRadio('radio-type');
     getInputRadio(elementName) {
         return document.querySelector(`input[name="${elementName}"]:checked`)?.value;
     },
 
-    // Example
-    // <input id="exampleId">;
-    // const command = Z.getInputText('exampleId');
     getInputText(elementId) {
         return document.querySelector(`#${elementId}`).value;
     },
@@ -105,8 +92,6 @@ const Z = {
         return document.querySelector(`#${elementId}`).value;
     },
 
-	// Example <input type="checlbox" onclick="fn_check()">
-	// co
     getInputCheckbox(elementId) {
         return document.querySelector(`#${elementId}`).checked;
     },
@@ -116,17 +101,12 @@ const Z = {
         return checked = [...checkboxes].map(checkbox => checkbox.checked);
     },
 
-
-	// SELECT
-	// use this <select onchange="myFunction(this.value)">
-
-
-    // deprecated
-    getValue(selector) {
-        if (this.missing(selector)) return;
-        return document.querySelector(selector).value;
+    getInputSelect(elementId) {
+        return document.querySelector(`#${elementId}`).value;
     },
 
+	
+    
     // ------ Terms ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
 
     terms(appName, language, callback) {
