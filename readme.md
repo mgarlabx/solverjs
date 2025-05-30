@@ -2,6 +2,14 @@
 
 O SolverJS é um conjunto de funções em Javascript para facilitar o uso nos projetos da SolverEdu.
 
+### INSTALL
+```html
+<!-- SolverJS -->
+<script src="https://solvertank.tech/solverjs/solverjs.js"></script>
+<link rel="stylesheet" href="https://solvertank.tech/solverjs/solverjs.css">
+```
+---
+
 ### GERAL
 ---
 ### Z.ready
