@@ -52,21 +52,23 @@ Z.processing.hide()
 
 ---
 
-### Z.termsShow
+### Z.terms
 
 Exibe os termos de uso da SolverEdu.
 Especificar o idioma (``pt``, ``es`` ou ``en``)
 
 ```javascript
-    const appName = "SolverAppName";
+    const appName = "solverapp";
     const lang = Z.languageBrowser() 
-    Z.termsShow(appName, lang, res => {
+    Z.terms(appName, lang, res => {
         if (res === false) {
             Z.termsError(lang);
             return;
+	} else {
+	    Z.recordAccess(appName)
         }
     });
-    Z.recordAccess(appName)
+  
 ```
 
 ---
