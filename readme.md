@@ -58,17 +58,16 @@ Exibe os termos de uso da SolverEdu.
 Especificar o idioma (``pt``, ``es`` ou ``en``)
 
 ```javascript
-    const appName = "solverapp";
-    const lang = Z.languageBrowser() 
-    Z.terms(appName, lang, res => {
-        if (res === false) {
-            Z.termsError(lang);
-            return;
-	} else {
-	    Z.recordAccess(appName)
-        }
-    });
-  
+const appName = "solverapp";
+const lang = Z.languageBrowser() 
+Z.terms(appName, lang, res => {
+    if (res === false) {
+        Z.termsError(lang);
+        return;
+    }
+});
+Z.recordAccess(appName)
+
 ```
 
 ---
