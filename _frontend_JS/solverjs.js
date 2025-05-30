@@ -109,6 +109,7 @@ const Z = {
     
     // ------ Terms ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
 
+    // Show terms when the user opens the app for the first time
     terms(appName, language, callback) {
         let solveredu = localStorage.getItem('solveredu');
         solveredu = JSON.parse(solveredu);
@@ -116,6 +117,9 @@ const Z = {
         Z.termsShow(appName, language, callback); // otherwise, show terms
     },
 
+    // Used in two cases:
+    // 1. Called from Z.terms() above (first time user opens the app)
+    // 2. When the user clicks on a button to show terms again
     termsShow(appName, language, callback) {
 
         // Remove accepted terms to force click again
