@@ -105,7 +105,11 @@ const Z = {
         return document.querySelector(`#${elementId}`).value;
     },
 
-	
+	// Deprecated
+    getValue(selector) {
+        if (this.missing(selector)) return;
+        return document.querySelector(selector).value;
+    },
     
     // ------ Terms ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
 
